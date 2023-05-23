@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NESEMU", "NESEMU\NESEMU.vcxproj", "{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Debug|x64.ActiveCfg = Debug|x64
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Debug|x64.Build.0 = Debug|x64
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Debug|x86.ActiveCfg = Debug|Win32
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Debug|x86.Build.0 = Debug|Win32
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Release|x64.ActiveCfg = Release|x64
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Release|x64.Build.0 = Release|x64
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Release|x86.ActiveCfg = Release|Win32
+		{2335FE35-F1BD-4C11-A65A-AEE61FCFEAEA}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E00BBC5B-507F-4BDD-8A7F-27DDF4D7CF12}
+	EndGlobalSection
+EndGlobal
