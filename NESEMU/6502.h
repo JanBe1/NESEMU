@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-
+//TODO: Meminit
 /*
 * The Nintendo Entertainment System has the following components:
 
@@ -23,7 +23,13 @@ Cartridges have the following components:
 (optional) Bank switching hardware for the ROMs
 (optional) Logic to generate interrupts
 */
+#pragma region Global Const Expressions
+static constexpr int MAX_MEMORY = 0xFFFF;
+static constexpr int TWO_KILOBYTES = 0x0800;
 
+#pragma endregion
+
+#pragma region Structures
 
 /// <summary>
 /// This structure is responsible for emulation of 6502 CPU.
@@ -58,6 +64,30 @@ struct CPU {
 	/// </summary>
 	uint8_t Y;
 
+	PSReg PS;
+	/// <summary>
+	/// The reset function. Sets all flags to 0, PC to 0xFFFE (IRQ), 
+	/// </summary>
+	void reset() {
+		PC = 0xFFFC;
+		SP = 0x0100;
+		X, Y, PS.C, PS.Z, PS.I, PS.D, PS.B, PS.O, PS.N = 0;
+	}
+};
+
+/// <summary>
+/// The memory of the controller. NES system has 2 KiB of RAM for use by the CPU. Refer to:
+/// https://www.nesdev.org/wiki/CPU_memory_map
+/// </summary>
+struct Memory {
+	uint8_t Data[TWO_KILOBYTES];
+};
+
+/// <summary>
+/// A Processor Status. One of status registers of CPU. As instructions are executed a set of processor flags are set or clear to record the results of the operation.
+///  This flags and some additional control flags are held in a special status register. Each flag has a single bit within the register.
+/// </summary>
+struct PSReg {
 	/// <summary>
 	/// Carry Flag. 
 	/// The carry flag is set if the last operation caused an overflow from bit 7 of the result or an underflow from bit 0. This condition is set during arithmetic, comparison and during logical shifts.
@@ -102,20 +132,7 @@ struct CPU {
 	/// </summary>
 	uint8_t N : 1;
 
-	/// <summary>
-	/// The reset function. Sets all flags to 0, PC to 0xFFFE (IRQ), 
-	/// </summary>
-	void reset() {
-		PC = 0xFFFC;
-		SP = 0x0100;
-		X, Y, C, Z, I, D, B, O, N = 0;
-	}
 };
+#pragma endregion
 
-/// <summary>
-/// The memory of the controller. NES system has 2 KiB of RAM for use by the CPU. Refer to:
-/// https://www.nesdev.org/wiki/CPU_memory_map
-/// </summary>
-struct Memory {
 
-};
